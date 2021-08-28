@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Course</h1>
+    <ul id="coursesContainer"><ul>
+    <script type="text/javascript">
+    //service cua course-service
+
+    var url = 'http://localhost:5001'
+    fetch(url).then(response => response.json())
+    .then(data => {
+        var courses = data.courses;
+        
+        var courseListContent = "";
+        courses.forEach(course => {
+            courseListContent += `<li>${course}<li>`
+        });
+        document.getElementById("coursesContainer").innerHTML = courseListContent;
+
+    })
+    .catch(error => console.log(error))
+    
+    </script>
+</body>
+</html>
